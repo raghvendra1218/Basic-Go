@@ -2,9 +2,11 @@ package main
 
 import "fmt"
 
+func newCard() string {
+	return "Five of Spades"
+}
+
 func main() {
-	// var card string = "Oh look it's joker"
-	card := "Ace of spades" //Declare and assign
-	card = "Five of club"   //Reassigning the value to a variable
+	card := newCard()
 	fmt.Println(card)
 }
