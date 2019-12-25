@@ -11,5 +11,8 @@ func main() {
 	// append function does not modify existing slice,
 	//instead it returns a new slice and assigns back to cards slice
 	cards = append(cards, "Joker!")
-	fmt.Println(cards)
+	//Let's iterate over slice
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
 }
