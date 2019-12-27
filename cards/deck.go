@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -29,6 +30,11 @@ func newDeck() deck {
 //This is also an example of multiple return values from a function
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+//Save Deck to a file
+func (d deck) saveToFile(fileName string) error {
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
 }
 
 //(d, deck) is receiver, Any variable of type deck, now gets access to print function with this receiver function
