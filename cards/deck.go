@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //Create a new type of deck,
 //which is a slice of strings
@@ -33,4 +36,12 @@ func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
+}
+
+//Convert the deck to string, receiver is better here
+func (d deck) toString() string {
+	//Step 1: convert deck to slice of string ([]string(d))
+	//Step 2: convert slice of string to a string, values seperated by comma
+	//["red","yellow","pink"] --> ["red,yellow,pink"]
+	return strings.Join([]string(d), ",")
 }
