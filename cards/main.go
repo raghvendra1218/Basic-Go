@@ -8,6 +8,8 @@ func main() {
 	// hand.print()
 	// remainingCards.print()
 	//Calling toString function on deck of cards
-	cards1 := newDeck()
-	cards1.saveToFile("my_saved_file")
+	// cards1 := newDeck()
+	// cards1.saveToFile("my_saved_file")
+	cards2 := newDeckFromFile("my_saved_file")
+	cards2.print()
 }

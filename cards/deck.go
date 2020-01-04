@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -50,4 +51,18 @@ func (d deck) toString() string {
 	//Step 2: convert slice of string to a string, values seperated by comma
 	//["red","yellow","pink"] --> ["red,yellow,pink"]
 	return strings.Join([]string(d), ",")
+}
+
+//Create a new Deck from a file from a hdd
+func newDeckFromFile(fileName string) deck {
+	bs, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		//Option -1: log the error and return a new deck OR
+		//Option -2: log the error and entirely quit the program
+		//We will implement option -2
+		fmt.Println("Error:", err)
+		//call the os exit function
+		os.Exit(1)
+	}
+	return deck(strings.Split(string(bs), ","))
 }
