@@ -23,5 +23,5 @@ func main() {
 	// resp.Body.Read(bs)
 	// fmt.Println("ResponseBody:->", string(bs))
 	//We can simplify the above three lines of code, where we are fetching the response
-	io.Copy(os.Stdout, resp.Body)
+	io.Copy(os.Stdout, resp.Body) //first argument implements Writer Interface, second implements the Reader interface
 }
